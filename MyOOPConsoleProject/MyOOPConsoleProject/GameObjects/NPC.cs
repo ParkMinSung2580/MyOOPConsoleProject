@@ -35,7 +35,7 @@ namespace MyOOPConsoleProject.GameObjects
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{name}: 안녕하세요! 저는 {name}입니다.");
                 Console.ResetColor();
-                Console.WriteLine(isTrigger);
+                //Console.WriteLine(isTrigger);             //디버깅
                 Console.ReadKey(true);
 
                 // 선택사항: 대화 영역 지우기

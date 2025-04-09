@@ -28,6 +28,7 @@ namespace MyOOPConsoleProject.Scene
             gameObjects = new List<GameObject>();
             gameObjects.Add(new NPC("행인", 'O', new Vector2(3, 3)));
             gameObjects.Add(new Place("ForestField",'F',new Vector2(10,4)));
+            gameObjects.Add(new Place("FightScene", 'F', new Vector2(2, 2),ConsoleColor.Red));
             
             //맵 이동 불가 색칠
             for (int y = 0; y < map.GetLength(0); y++)
