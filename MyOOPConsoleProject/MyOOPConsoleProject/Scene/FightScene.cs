@@ -8,6 +8,7 @@ namespace MyOOPConsoleProject.Scene
 {
     public class FightScene : BaseScene
     {
+        private ConsoleKey input;
         /*
             curScene.Render();
             curScene.Input();
@@ -16,25 +17,29 @@ namespace MyOOPConsoleProject.Scene
         */
         public override void Render()
         {
-            Console.WriteLine();
+            Console.WriteLine("전투씬에 돌입합니다.");
         }
 
         public override void Input()
         {
-            Console.WriteLine();
+            input = Console.ReadKey(true).Key;
         }
 
         public override void Result()
         {
-            Console.WriteLine();
+            Console.WriteLine("결과를 표출합니다");
+            Console.WriteLine("전투에 승리하셨습니다, 이전씬으로 돌아갑니다");
+            // TODO - 이전씬으로 되돌아가기 구현
+            Console.ReadKey(true);
+            Game.ChangeScene("FirstTown");
         }
 
         public override void Update()
         {
-            Console.WriteLine();
+            Console.WriteLine("당신이 누른키는 {0} 입니다",input);
         }
 
-        public override void Enter() { }
-        public override void Exit() { }
+        public override void Enter() { Console.WriteLine("."); }
+        public override void Exit() { Console.WriteLine("."); }
     }
 }

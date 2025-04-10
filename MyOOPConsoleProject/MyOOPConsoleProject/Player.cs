@@ -15,25 +15,25 @@ namespace MyOOPConsoleProject
         public Inventory Inventory { get { return inventory; } }
         public bool[,] map;
 
-        //private int curHP;
-        //public int CurHP { get { return curHP; } }
-        //private int maxHP;
-        //public int MaxHP { get { return maxHP; } }
+        private int hP;
+        public int HP { get { return hP; } }
+        private int maxHP;
+        public int MaxHP { get { return maxHP; } }
 
         public Player()
         {
             inventory = new Inventory();
-            //maxHP = 100;
-            //curHP = maxHP;
+            maxHP = 100;
+            hP = maxHP;
         }
 
         public void Heal(int amount)
         {
-            //curHP += amount;
-            //if (curHP > maxHP)
-            //{
-            //    curHP = maxHP;
-            //}
+            hP += amount;
+            if(hP > maxHP)
+            {
+                hP = maxHP;
+            }
         }
 
         public void Print()

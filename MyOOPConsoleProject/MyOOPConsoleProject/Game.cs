@@ -11,6 +11,7 @@ namespace MyOOPConsoleProject
     public static class Game
     {
         private static Dictionary<string, BaseScene> sceneDic;
+
         private static BaseScene curScene;
         public static string prevSceneName;
 
@@ -65,8 +66,10 @@ namespace MyOOPConsoleProject
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
             curScene = sceneDic["Title"];
+
             sceneDic.Add("FirstTown", new FirstTown());
             sceneDic.Add("ForestField", new ForestField());
+            sceneDic.Add("FightScene", new FightScene());
         }
 
         /// 게임의 마무리 작업 진행

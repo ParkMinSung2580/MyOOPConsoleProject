@@ -31,8 +31,8 @@ namespace MyOOPConsoleProject.Scene
 
             Game.Player.Print();
 
-            Console.SetCursorPosition(0, map.GetLength(0) * 2);
-            //Game.Player.inventory.PrintAll();
+            Console.SetCursorPosition(0, map.GetLength(0));//* 2);
+            Game.Player.Inventory.PrintAll();
         }
 
         //플레이어 인풋 확인
@@ -45,7 +45,6 @@ namespace MyOOPConsoleProject.Scene
         public override void Update()
         {
             Game.Player.Move(input);
-
             if (input == ConsoleKey.R)
             {
                 foreach (GameObject go in gameObjects)
@@ -83,6 +82,7 @@ namespace MyOOPConsoleProject.Scene
                         break;
                     }
                 }
+                //else if(상호작용을 했을때  &&go is ICommandInteractable commandInteractable)
             }
         }
 

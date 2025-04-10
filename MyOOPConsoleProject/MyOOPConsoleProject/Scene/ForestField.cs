@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyOOPConsoleProject.GameObjects;
+using MyOOPConsoleProject.GameObjects.item;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +27,9 @@ namespace MyOOPConsoleProject.Scene
 
             map = new bool[6, 12];
 
-            gameObjects = new List<GameObject>();          
+            gameObjects = new List<GameObject>();
+            gameObjects.Add(new Place("FirstTown", 'F', new Vector2(1, 1),true));
+            gameObjects.Add(new Weapon('J', new Vector2(3, 1), "철검", 20, 5));
 
             //맵 이동 불가 색칠
             for (int y = 0; y < map.GetLength(0); y++)
@@ -39,7 +43,7 @@ namespace MyOOPConsoleProject.Scene
                 {
                     if (go.isTrigger == false)
                     {
-                        map[go.position.x, go.position.y] = false;
+                        map[go.position.y, go.position.x] = false;
                     }
                 }
             }
@@ -48,6 +52,14 @@ namespace MyOOPConsoleProject.Scene
         public override void Enter()
         {
             Game.Player.map = this.map;
+            if(Game.prevSceneName ==  "FirstTown")
+                Game.Player.position = new Vector2(1, 1);
+            /*else
+                Game.Player.position = new Vector2(1, 1);*/
+        }
+
+        public override void Exit()
+        {
             Game.Player.position = new Vector2(1, 1);
         }
     }

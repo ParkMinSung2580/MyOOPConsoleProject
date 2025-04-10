@@ -8,6 +8,8 @@ namespace MyOOPConsoleProject.Scene
 {
     public class TitleScene : BaseScene
     {
+        public TitleScene() { Name = "TitleScene"; }
+        
         public override void Render()
         {
             Console.WriteLine("============================");
@@ -34,6 +36,11 @@ namespace MyOOPConsoleProject.Scene
         public override void Result()
         {
             Game.ChangeScene("FirstTown");
+        }
+
+        public override void Exit()
+        {
+            Game.prevSceneName = this.Name;
         }
     }
 }

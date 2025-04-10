@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyOOPConsoleProject.GameObjects;
+using MyOOPConsoleProject.GameObjects.item;
 
 namespace MyOOPConsoleProject.Scene
 {
@@ -11,7 +12,7 @@ namespace MyOOPConsoleProject.Scene
     {
         public FirstTown()
         {
-            Name = "FristTown";
+            Name = "FirstTown";
 
             mapData = new string[]
             {
@@ -26,9 +27,10 @@ namespace MyOOPConsoleProject.Scene
             map = new bool[6, 12];
 
             gameObjects = new List<GameObject>();
-            gameObjects.Add(new NPC("행인", 'O', new Vector2(3, 3)));
+            gameObjects.Add(new NPC("헌터", 'H', new Vector2(3, 3)));
             gameObjects.Add(new Place("ForestField",'F',new Vector2(10,4)));
-            gameObjects.Add(new Place("FightScene", 'F', new Vector2(2, 2),ConsoleColor.Red));
+            gameObjects.Add(new Place("FightScene", 'F', new Vector2(2, 2),false,ConsoleColor.Red));
+            gameObjects.Add(new Weapon('J', new Vector2(7, 1), "나무검", 10, 5));
             
             //맵 이동 불가 색칠
             for (int y = 0; y < map.GetLength(0); y++)
@@ -42,7 +44,7 @@ namespace MyOOPConsoleProject.Scene
                 {
                     if (go.isTrigger == false)
                     {
-                        map[go.position.x, go.position.y] = false;
+                        map[go.position.y, go.position.x] = false;
                     }
                 }
             }
@@ -50,8 +52,15 @@ namespace MyOOPConsoleProject.Scene
 
         public override void Enter()
         {
-            Game.Player.map = this.map;
-            Game.Player.position = new Vector2(1, 1);
+            if (Game.prevSceneName == "TitleScene")
+            {
+                Game.Player.position = new Vector2(1, 1);
+            }
+            else if(Game.prevSceneName == "ForestField")
+            {
+                Game.Player.position = new Vector2(10, 4);
+            }
+            Game.Player.map = this.map;           
         }
     }
 }
