@@ -1,2 +1,7 @@
 ﻿나중에 하면 좋을 것들
-//
+
+//무기 빌더 팩토리 & 아이템 요소 ->랜덤배치
+
+//ICommandInteractable 과 상호 작용 Oncommand를 수행하게 됬을때 없애는 처리
+- 현재는 Collision 했을때 해당 오브젝트와 Player의 포지션이 같을 때에만 게임오브젝트를 없애는 처리를 하지만 
+ 나중에는 ICommandInteractable를 상속받은 객체들을 처리해줄 필요가 생김
